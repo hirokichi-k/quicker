@@ -1,9 +1,0 @@
-{
-    "name": "quicker",
-    "short_name": "quicker",
-    "display": "standalone",
-    "start_url": "/",
-    "orientation": "portrait",
-    "background_color": "#fff",
-    "theme_color": "#00FA9A"
-  }

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "quicker",
+  "name": "quicker",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +18,9 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "portrait",
+  "background_color": "#fff",
+  "theme_color": "#00FA9A",
+  "start_url": "."
 }
