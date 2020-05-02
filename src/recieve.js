@@ -2,7 +2,15 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import FloatWindow_recieve from './FloatWindow_receive.js'
+import request from 'superagent';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import CopyToClipboard from 'react-copy-to-clipboard';
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -15,24 +23,95 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RecieveBox() {
+
     const [is_pushed, setPush] = React.useState(false);
+    const [text, setText] = React.useState("hoge");
+    const [id, setid] = React.useState("0");
     const classes = useStyles();
     const onclick_send = () => {
         setPush(true);
     };
-    const popup_floatwindow = (is_pushed) => {
-        console.log(is_pushed);
-        if (is_pushed) {
-            return <FloatWindow_recieve />
-        }
+    const [copied, setState] = React.useState(false);
+    const state = {value: text, copied: false};
+    const onChange = ({target: {value}}) => {
+        setState({value, copied: false});
     };
+    const onCopy = () => {
+        setState({copied: true})
+    };
+    const URL = "http://34.83.242.238";
+    const [open, setOpen] = React.useState(true);
+    const [do_request, setRequest] = React.useState(true);
+    const handleClose = () => {
+        setOpen(false);
+        setPush(false);
+    };
+    const handleId = (event) => {
+        setid(event.target.value);
+    };
+
+    var excessbox = null
+    const callbackget = (err, res) => {
+        if (err) {
+            console.log(err);
+            return
+        }
+        else {
+            setText(res.body.message);
+            console.log(res.body.message);
+            return
+        }
+    }
+    const loaddata = (is_pushed) => {
+        if (is_pushed) {
+            if (do_request) {
+                request.get("http://34.83.242.238/?id="+id).end(callbackget)
+                setRequest(false);
+                return
+            }
+
+            else {
+                return (
+                    <div>
+                        <Dialog
+                            open={open}
+                            onClose={handleClose}
+                            state={state}
+                            copied={copied}
+                            aria-labelledby="alert-dialog-title"
+                            aria-describedby="alert-dialog-description"
+                        >
+                            <DialogTitle id="alert-dialog-title">{"テキストを受け付けました."}</DialogTitle>
+                            <DialogContent>
+                                <DialogContentText id="alert-dialog-description">
+                                    送信されたメッセージ
+                        </DialogContentText>
+                        <textarea onChange={onChange} value={state.value} />
+                        <CopyToClipboard onCopy={onCopy} text={state.value}>
+                            <button id="bt3">Copy!!</button>
+                        </CopyToClipboard>
+                                {/* <h3>{text}</h3> */}
+                            </DialogContent>
+                            <DialogActions>
+                                <Button onClick={handleClose} color="primary" autoFocus>
+                                    OK
+                        </Button>
+                            </DialogActions>
+                        </Dialog>
+                    </div>
+                );
+            }
+        }
+
+    }
+
     return (
         <div>
             <form className={classes.root} noValidate autoComplete="off">
-                <TextField id="standard-basic" label="6桁の数字を入力してください" />
+                <TextField onChange={handleId} id="standard-basic" label="6桁の数字を入力してください" />
             </form>
             <Button variant="contained" color="primary" onClick={onclick_send}>テキスト受信</Button>
-            {popup_floatwindow(is_pushed)}
+            {loaddata(is_pushed)}
         </div>
 
     );
