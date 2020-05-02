@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  text-align: center;
+  min-width: 600px;
+}
+
+#root {
+  margin-top: 40px;
+}
+
+/* .App {
+  background-size: cover;
+  background-color: #000;
+  color: #fff;
+  background-color:rgba(0,0,0,0.3); /* backgroundでalpha設定(4番目の引数)
+} */
+
+
+button{
+  display: inline-block;
+  font-size: 20px;
+  width: 200px;
+  height: 48px;
+  border-radius: 48px;
+  margin-right: 24px;
+  margin-left: 24px;
+  color: #fff;
+  background-color: rgba(5, 200, 214, 0.911);
+  border: none;
+  outline: none;
+  box-shadow: 4px 4px #d8d8d8;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button[id="bt1"]{
+  background-color: rgba(5, 200, 214, 0.911);
+}
+
+button[id="bt2"]{
+  background-color: rgb(39, 6, 223);
+}
+
+button[id="bt3"]{
+  background-color: rgba(248, 4, 228, 0.76);
+  font-size: 10px;
+  width: 100px;
+  height: 24px;
+  border-radius: 48px;
+  margin: 0 0 0 auto;
+
+}
+
+
+button:active {
+  position: relative;
+  top: 4px;
+  left: 4px;
+  box-shadow: none;
+}
