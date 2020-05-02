@@ -39,7 +39,7 @@ export default function RecieveBox() {
     const onCopy = () => {
         setState({copied: true})
     };
-    const URL = "http://34.83.242.238";
+    const URL = "//34.83.242.238";
     const [open, setOpen] = React.useState(true);
     const [do_request, setRequest] = React.useState(true);
     const handleClose = () => {
@@ -65,7 +65,7 @@ export default function RecieveBox() {
     const loaddata = (is_pushed) => {
         if (is_pushed) {
             if (do_request) {
-                request.get("http://34.83.242.238/?id="+id).end(callbackget)
+                request.get("//34.83.242.238/?id="+id).end(callbackget)
                 setRequest(false);
                 return
             }

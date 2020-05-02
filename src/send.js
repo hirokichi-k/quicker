@@ -37,7 +37,7 @@ export default function RecieveBox() {
         setPush(false);
     };
 
-    const URL = "http://34.83.242.238";
+    const URL = "//34.83.242.238";
     const onclick_send = () => {
         setPush(true);
     };
