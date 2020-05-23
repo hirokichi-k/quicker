@@ -58,7 +58,6 @@ export default function RecieveBox() {
         }
         else {
             setText(res.body.message);
-            console.log(res.body.message);
             return
         }
     }
@@ -108,7 +107,15 @@ export default function RecieveBox() {
     return (
         <div>
             <form className={classes.root} noValidate autoComplete="off">
-                <TextField onChange={handleId} id="standard-basic" label="6桁の数字を入力してください" />
+                <TextField
+                    onChange={handleId}
+                    id="standard-basic"
+                    onKeyDown={(e) => {
+                        if (e.keyCode == '13'){
+                            onclick_send()
+                        }
+                    }}
+                    label="6桁の数字を入力してください" />
             </form>
             <Button variant="contained" color="primary" onClick={onclick_send}>テキスト受信</Button>
             {loaddata(is_pushed)}

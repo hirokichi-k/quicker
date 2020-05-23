@@ -59,15 +59,11 @@ export default function RecieveBox() {
     const popup_floatwindow = (is_pushed) => {
         if (is_pushed) {
             if (do_request) {
-                console.log("text");
-                console.log(text);
                 request.post(URL).
                     set('Content-Type', 'application/json').send({ "message": text }).end(callbackget);
 
             }
             else {
-                console.log(id_float);
-                console.log(text);
                 return (
                     <div>
                         <Dialog
@@ -102,7 +98,7 @@ export default function RecieveBox() {
                     onChange={handleText}
                     id="basic"
                     onKeyDown={(e) => {
-                        if (e.key === "Enter"){
+                        if (e.keyCode == '13'){
                             onclick_send()
                         }
                     }}
