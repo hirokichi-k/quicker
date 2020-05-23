@@ -92,7 +92,7 @@ export default function RecieveBox() {
                                 {/* <h3>{text}</h3> */}
                             </DialogContent>
                             <DialogActions>
-                                <Button onClick={handleClose} color="primary" autoFocus>
+                                <Button onClick={handleClose} color="primary">
                                     OK
                         </Button>
                             </DialogActions>
@@ -115,7 +115,8 @@ export default function RecieveBox() {
                             onclick_send()
                         }
                     }}
-                    label="6桁の数字を入力してください" />
+                    label="6桁の数字を入力してください"
+                />
             </form>
             <Button variant="contained" color="primary" onClick={onclick_send}>テキスト受信</Button>
             {loaddata(is_pushed)}
