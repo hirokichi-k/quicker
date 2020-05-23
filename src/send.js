@@ -97,8 +97,8 @@ export default function RecieveBox() {
                 <TextField
                     onChange={handleText}
                     id="basic"
-                    onKeyUp={(e) => {
-                        if (e.keyCode == '13'){
+                    onKeyPress={(e) => {
+                        if (e.ctrlKey && e.keyCode == '13'){
                             onclick_send()
                         }
                     }}
