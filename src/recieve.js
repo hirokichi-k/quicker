@@ -111,7 +111,7 @@ export default function RecieveBox() {
                     onChange={handleId}
                     id="standard-basic"
                     onKeyDown={(e) => {
-                        if (e.ctrlKey && e.keyCode == '13'){
+                        if (e.keyCode == '13'){
                             onclick_send()
                         }
                     }}
