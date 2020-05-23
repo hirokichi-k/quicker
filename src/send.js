@@ -13,8 +13,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
-            margin: theme.spacing(1),
-            width: '100%',
+            width: '100vw',
         },
     },
 }));
