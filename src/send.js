@@ -98,7 +98,8 @@ export default function RecieveBox() {
                     onChange={handleText}
                     id="basic"
                     onKeyDown ={(e) => {
-                        if (e.key === 'Enter'){
+                        if (e.keyCode == '13'){
+                            e.preventDefault()
                             onclick_send()
                         }
                     }}
