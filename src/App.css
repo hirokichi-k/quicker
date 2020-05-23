@@ -3,14 +3,21 @@ body {
   padding: 0;
   font-family: sans-serif;
   text-align: center;
-  min-width: 600px;
+  min-width: 100%;
 }
 
 #root {
   margin-top: 40px;
 }
 
-
+@media screen and (max-width: 1100px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 480px) {
+}
+@media screen and (max-height: 430px) {
+}
 
 
 button{
