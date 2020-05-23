@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 export default function RecieveBox() {
 
     const [is_pushed, setPush] = React.useState(false);
-    const [text, setText] = React.useState("hoge");
+    const [text, setText] = React.useState("入力された番号が間違っています");
     const [id, setid] = React.useState("0");
     const classes = useStyles();
     const onclick_send = () => {
