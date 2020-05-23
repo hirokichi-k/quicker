@@ -98,8 +98,7 @@ export default function RecieveBox() {
                     onChange={handleText}
                     id="basic"
                     onKeyDown ={(e) => {
-                        if (e.keyCode === '13'){
-                            e.preventDefault()
+                        if (e.key === 'Enter'){
                             onclick_send()
                         }
                     }}
@@ -109,6 +108,5 @@ export default function RecieveBox() {
             <Button variant="contained"  color ="primary" onClick={onclick_send}>テキスト送信</Button>
             {popup_floatwindow(is_pushed)}
         </div>
-
     );
 }
