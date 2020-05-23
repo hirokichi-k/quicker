@@ -37,7 +37,7 @@ export default function RecieveBox() {
         setPush(false);
     };
 
-    const URL = "//34.83.242.238";
+    const URL = "http://quicker.ml/";
     const onclick_send = () => {
         setPush(true);
     };

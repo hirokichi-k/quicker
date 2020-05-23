@@ -4,9 +4,6 @@ import SendBox from './send.js'
 import RecieveBox from './recieve.js'
 
 
-
-
-
 class App extends Component{
   constructor(props) {
     super(props);
