@@ -16,8 +16,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
-            margin: theme.spacing(1),
-            width: '100%',
+            width: '100vw',
         },
     },
 }));
