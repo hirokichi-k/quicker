@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
             margin: theme.spacing(1),
-            width: '100ch',
+            width: '100%',
         },
     },
 }));
@@ -59,8 +59,7 @@ export default function RecieveBox() {
     const popup_floatwindow = (is_pushed) => {
         if (is_pushed) {
             if (do_request) {
-                request.post(URL).
-                    set('Content-Type', 'application/json').send({ "message": text }).end(callbackget);
+                request.post(URL).set('Content-Type', 'application/json').send({ "message": text }).end(callbackget);
 
             }
             else {
@@ -98,7 +97,7 @@ export default function RecieveBox() {
                     onChange={handleText}
                     id="basic"
                     onKeyDown ={(e) => {
-                        if (e.keyCode == '13'){
+                        if (e.keyCode === 13){
                             e.preventDefault()
                             onclick_send()
                         }

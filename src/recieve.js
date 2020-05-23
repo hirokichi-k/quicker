@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
             margin: theme.spacing(1),
-            width: '100ch',
+            width: '100%',
         },
     },
 }));
@@ -39,7 +39,6 @@ export default function RecieveBox() {
     const onCopy = () => {
         setState({copied: true})
     };
-    const URL = "https://quicker.ml/";
     const [open, setOpen] = React.useState(true);
     const [do_request, setRequest] = React.useState(true);
     const handleClose = () => {
@@ -50,7 +49,6 @@ export default function RecieveBox() {
         setid(event.target.value);
     };
 
-    var excessbox = null
     const callbackget = (err, res) => {
         if (err) {
             console.log(err);
@@ -111,7 +109,7 @@ export default function RecieveBox() {
                     onChange={handleId}
                     id="standard-basic"
                     onKeyDown={(e) => {
-                        if (e.keyCode == '13'){
+                        if (e.keyCode === 13){
                             onclick_send()
                         }
                     }}
