@@ -3,6 +3,8 @@ import './App.css';
 import SendBox from './send.js'
 import RecieveBox from './recieve.js'
 
+import Header from "./Header";
+
 
 class App extends Component{
   constructor(props) {
@@ -36,6 +38,7 @@ class App extends Component{
   render() {
     return (
       <div className="App">
+        <Header />
         <h1>短文がすぐに送信できます！</h1>
         <button id="bt1" onClick={() => { this.DoChange_Send();}}>送信する</button>
         <button id="bt2" onClick={() => { this.DoChange_recieve(); }}>受信する</button>
