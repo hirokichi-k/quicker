@@ -98,7 +98,16 @@ export default function RecieveBox() {
     return (
         <div>
             <form className={classes.root} noValidate autoComplete="off">
-                <TextField onChange={handleText} id="basic" label="送信したいテキストを入力してください" />
+                <TextField
+                    onChange={handleText}
+                    id="basic"
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter"){
+                            onclick_send()
+                        }
+                    }}
+                    label="送信したいテキストを入力してください"
+                />
             </form>
             <Button variant="contained"  color ="primary" onClick={onclick_send}>テキスト送信</Button>
             {popup_floatwindow(is_pushed)}
